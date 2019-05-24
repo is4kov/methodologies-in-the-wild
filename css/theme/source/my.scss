@@ -1,0 +1,292 @@
+@import 'white';
+@import url(../../lib/font/oswald/oswald.css);
+
+$mainFont: "Oswald", Helvetica, sans-serif;
+$mainFontSize: 36px;
+
+.reveal {
+  font-size: $mainFontSize;
+  
+  body {
+    
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $mainFont;
+    font-weight: normal !important;
+  }
+
+  ul li {
+    list-style: none;
+    margin-left: 0;
+  }
+  
+  section {
+
+    img {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  
+  pre {
+    
+    code {
+      max-height: 720px;
+    }
+  }
+}
+
+
+
+.section-bem {
+  
+  .fragment:not(.current-fragment) ~ h2 span:nth-child(2) {
+    opacity: 0;
+  }
+}
+
+.section-smacss {
+  
+  .is-highlighted {
+    box-shadow: 0 0 9999px rgba(black, .6);
+  }
+}
+
+.example-menu {
+  margin-bottom: 3em;
+
+  &__list {
+    display: flex !important;
+    margin-left: 0 !important;
+  }
+  
+  &__item {
+    
+    &:not(:first-child) {
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+        background: #444;
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  &__item--active &__title {
+    color: red;
+    border-bottom: 1px dashed currentColor;
+  }
+}
+
+.bem-modifier-variants {
+  margin-left: 0 !important;
+  font-family: monospace;
+  font-size: 1.5em;
+  
+  & > li {
+    margin-bottom: .5em !important;
+    text-align: center !important;
+  }
+  
+  .is-spoiler {
+    margin-top: 2em !important;
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: blink 2s linear infinite;
+    backface-visibility: hidden;
+  }
+  
+  .is-invalid {
+    font-size: 1.5em;
+    
+    &.visible:not(.current-fragment) {
+      opacity: .3;
+      text-decoration: line-through;
+    }
+  }
+  
+  .is-correct {
+    font-size: 1.5em;
+  }
+  
+  .is-doubtful {
+    
+    &::after {
+      content: '?';
+      animation: blink 2s linear infinite;
+      backface-visibility: hidden;
+      color: #999;
+    }
+  }
+  
+  .fragment.visible:not(.current-fragment):not(.is-correct):not(.is-doubtful) {
+    
+    .is-smacss & {
+      opacity: .4;
+      font-size: 1em;
+    }
+  } 
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  
+  50% {
+    opacity: 0;
+  }
+}
+
+.design-naming {
+  
+  &__item {
+    display: flex;
+    justify-content: center;
+    
+    &.is-heading {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+  }
+  
+  &__source {
+    
+    .is-heading & {
+      margin-right: 2em;
+    }
+  }
+  
+  &__css {
+    
+    .is-heading & {
+      margin-left: 2em;
+    }
+  }
+  
+  &__item:not(:first-child) &__source::after {
+    content: '→';
+    opacity: 0;
+    margin: 0 1em;
+    transition: opacity linear .5s;
+  }
+  
+  &__item:not(:first-child) &__css {
+    opacity: 0;
+    transition: opacity linear .5s;
+  }
+  
+  .visible ~ &__list &__source::after {
+    opacity: 1;
+  }
+
+  .visible ~ &__list &__css {
+    opacity: 1;
+  }
+  
+  @for $i from 2 to 8 {
+    
+    &__item:nth-child(#{$i}) &__source::after {
+      transition-delay: 1s * $i - 2s;
+    }
+
+    &__item:nth-child(#{$i}) &__css {
+      transition-delay: 1s * $i - 2s;
+    }
+  }
+}
+
+.design-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  
+  &__item {
+    margin: 0 1em;
+
+    &.is-mystery {
+      flex-basis: 40%;
+    }
+  }
+
+  .is-correct {
+    height: 0;
+    opacity: 0;
+    transition: opacity linear .5s;
+    transition-delay: 1s;
+  }
+  
+  .is-incorrect {
+    animation: blink 1s linear infinite;
+    backface-visibility: hidden;
+  }
+    
+  .visible ~ & .is-correct {
+    height: auto;
+    opacity: 1;
+  }
+  
+  .visible ~ & .is-incorrect {
+    display: none;
+  }
+}
+
+.toggler {
+  
+  &__input {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  &__label {
+    margin-left: 2em;
+    color: #999;
+    transition: color linear .5s;
+    
+    &:hover {
+      color: black;
+    }
+  }
+  
+  &__element {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 1em 2em;
+    background: #fff;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 5px 9999px rgba(black, .75);
+    
+    pre {
+      width: 100% !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+    }
+    
+    label {
+      position: absolute;
+      right: 26px;
+      top: 16px;
+    }
+  }
+
+  &__input:checked ~ &__element {
+    display: block;
+  }
+}
