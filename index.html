@@ -25,39 +25,122 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section class="section-start">
-					<h1>Methodologies in the Wild</h1>
-					<br>
-					<br>
+				<section class="section-start" data-background="images/main.jpg" data-background-size="cover">
+					<h1>Methodologies <br>in the Wild</h1>
 					<div>Yevhen Isakov</div>
 					<time datetime="25-05-2019">2019</time>
 				</section>
 				
+				<section>
+					<img src="images/methodologies.png" alt="">
+				</section>
+				
 				<section class="section-bem">
-					<div class="fragment"></div>
-					<h2>
-						<div>
-							<span>B</span><span>lock</span>
-						</div>
-						<div>
-							<span>E</span><span>lement</span>
-						</div>
-						<div>
-							<span>M</span><span>odifier</span>
-						</div>
-					</h2>
+					<h2>BEM</h2>
 				</section>
 				
 				<section>
-					Element within element
+					<img src="images/bem-tweet-magic.png" alt="" style="transform:scale(1.2)">
 				</section>
 				
 				<section>
-					BEM tree
+					<ol style="font-size:1.5em;">
+						<li>Block</li>
+						<li class="fragment">Element</li>
+						<li class="fragment">Modifier</li>
+					</ol>
 				</section>
 				
 				<section>
-					Block or element
+					<div class="title-like">Blocks & elements</div>
+				</section>
+				
+				<section>
+					<pre><code style="font-size:1em;">&lt;div class="article">
+  &lt;img class="article__figure" src="..." alt="">
+  &lt;div class="article__content">
+    &lt;h3 class="article__header">Lorem ipsum&lt;/h3>
+    &lt;div class="article__description">
+      Lorem ipsum dolor sit amet, consectetur...
+    &lt;/div>
+    &lt;div class="article__data">blah blah&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>
+				</section>
+
+				<section>
+					<p>It is...</p>
+					<img src="images/bem-tree-1.jpg" alt="">
+				</section>
+				
+				<section>
+					<pre><code style="font-size:1em;">&lt;div class="article">
+  &lt;img class="article__figure" src="..." alt="">
+  &lt;div class="article__content">
+    &lt;h3 class="article__header">Lorem ipsum&lt;/h3>
+    &lt;div class="article__description">
+      Lorem ipsum dolor sit amet, consectetur...
+    &lt;/div>
+    &lt;div class="article__data">
+      &lt;div class="article__data-author">&lt;/div>
+      &lt;time class="article__data-pubdate">&lt;/time>
+    &lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>
+				</section>
+
+				<section><pre><code style="font-size:1em;">&lt;div class="article__data">
+  &lt;div class="article__data__author">John Doe&lt;/div>
+  &lt;time class="article__data__pubdate">30 Feb 2019&lt;/time>
+  &lt;div class="article__data__rating">4.8&lt;/div>
+&lt;/div></code></pre>
+				</section>
+
+				<section>
+					<p>Looks like...</p>
+					<img src="images/bem-tree-2.jpg" alt="">
+				</section>
+				
+				<section>
+					<p>Should be</p>
+					<img src="images/bem-tree-3.jpg" alt="">
+				</section>
+				
+				<section><pre><code style="font-size:1em;">&lt;div class="article__data">
+  &lt;div class="article__author">John Doe&lt;/div>
+  &lt;time class="article__pubdate">30 Feb 2019&lt;/time>
+  &lt;div class="article__rating">4.8&lt;/div>
+&lt;/div></code></pre></section>
+				
+				<section>
+					<pre><code>&lt;div class="article__data">
+  &lt;div class="article__data__author">John Doe&lt;/div>
+  &lt;time class="article__data__pubdate">30 Feb 2019&lt;/time>
+  &lt;div class="article__data__rating">4.8&lt;/div>
+&lt;/div></code></pre>
+					<div class="fragment no">NO WAY!</div>
+				</section>
+				
+				<section>
+					<div>New independent block</div>
+					<pre><code>&lt;div class="article__data data">
+  &lt;div class="data__author">John Doe&lt;/div>
+  &lt;time class="data__pubdate">30 Feb 2019&lt;/time>
+  &lt;div class="data__rating">4.8&lt;/div>
+&lt;/div></code></pre>
+				</section>
+				
+				<section>
+					<div>New inner block</div>
+					<pre><code>&lt;div class="article-data">
+  &lt;div class="article-data__author">John Doe&lt;/div>
+  &lt;time class="article-data__pubdate">30 Feb 2019&lt;/time>
+  &lt;div class="article-data__rating">4.8&lt;/div>
+&lt;/div></code></pre>
+				</section>
+				
+				<section>
+					<div class="title-like">Modifiers</div>
 				</section>
 				
 				<section>
@@ -70,18 +153,18 @@
 						</ul>
 					</div>
 					<pre><code>&lt;ul class="menu">
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Homepage&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Documentation&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Resources&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Community&lt;/a>
-	&lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Homepage&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Documentation&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Resources&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Community&lt;/a>
+    &lt;/li>
 &lt;/ul></code></pre>
 				</section>
 				
@@ -95,18 +178,18 @@
 						</ul>
 					</div>
 					<pre><code>&lt;ul class="menu">
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Homepage&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item menu__item--active">
-		&lt;a href="#" class="menu__title">Documentation&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Resources&lt;/a>
-	&lt;/li>
-	&lt;li class="menu__item">
-		&lt;a href="#" class="menu__title">Community&lt;/a>
-	&lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Homepage&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item menu__item--active">
+        &lt;a href="#" class="menu__title">Documentation&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Resources&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Community&lt;/a>
+    &lt;/li>
 &lt;/ul></code></pre>
 				</section>
 				
@@ -123,17 +206,17 @@
 					<pre><code>el.classList.toggle('menu__item--active')</code></pre>
 					<pre class="fragment"><code>export default class Component {
 
-	constructor(el) {
+    constructor(el) {
 						
-		...
+        ...
 						
-		for(let cls of this.el.classList.values()) {
-			if (!cls.includes('--')) {
-				this.bem = cls;
-				break;
-			}
-		}
-	}
+        for(let cls of this.el.classList.values()) {
+            if (!cls.includes('--')) {
+                this.bem = cls;
+                break;
+            }
+        }
+    }
 }
 					
 el.classList.toggle(this.bem + '--active');</code></pre>
@@ -141,8 +224,11 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 				
 				<section class="section-smacss">
 					<h2>SMACSS</h2>
-					<ol>
-						<li class="fragment">Base</li>
+				</section>
+				
+				<section>
+					<ol style="font-size:1.5em;">
+						<li>Base</li>
 						<li class="fragment">Layout</li>
 						<li class="fragment">Module</li>
 						<li class="fragment">State</li>
@@ -162,7 +248,34 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 						</ul>
 					</div>
 				</section>
+
+				<section>
+					<div class="example-menu">
+						<ul class="example-menu__list">
+							<li class="example-menu__item"><a href="#" class="example-menu__title">Homepage</a></li>
+							<li class="example-menu__item example-menu__item--active"><a href="#" class="example-menu__title">Documentation</a></li>
+							<li class="example-menu__item"><a href="#" class="example-menu__title">Resources</a></li>
+							<li class="example-menu__item"><a href="#" class="example-menu__title">Community</a></li>
+						</ul>
+					</div>
+					<pre><code>&lt;ul class="menu">
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Homepage&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item is-active">
+        &lt;a href="#" class="menu__title">Documentation&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Resources&lt;/a>
+    &lt;/li>
+    &lt;li class="menu__item">
+        &lt;a href="#" class="menu__title">Community&lt;/a>
+    &lt;/li>
+&lt;/ul></code></pre>
+					<pre><code>.menu__item.is-active { ... }</code></pre>
+				</section>
 				
+				<!--
 				<section>
 					<h2>Utility CSS</h2>
 				</section>
@@ -196,28 +309,43 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 					<pre><code>TO ADD CODE</code></pre>
 					
 					
-				</section>
+				</section>-->
 				
-				<section data-background="images/the-good-the-bad-and-the-ugly-1821×1024.jpg" data-background-size="contain"></section>
+<!--				<section data-background="images/the-good-the-bad-and-the-ugly-1821×1024.jpg" data-background-size="contain"></section>-->
 				
 				<section data-background="images/time.jpg" data-background-size="cover"></section>
 				
-				<section>
-					<p>Project stack & requirements</p>
-					<ul>
-						<li class="fragment">Angular 5</li>
-						<li class="fragment">ng-cli ~1.7</li>
-						<li class="fragment">Atomic Design</li>
-						<li class="fragment">InVision</li>
-						<li class="fragment">Chrome latest</li>
-					</ul>
+				<section class="project-requirements">
+					<header>Google.com-like SPA</header>
+					<div class="project-requirements__part fragment">
+						<p class="project-requirements__title"><strong>Tech</strong></p>
+						<ul>
+							<li class="fragment">Angular 5</li>
+							<li class="fragment">ng-cli</li>
+							<li class="fragment">Atomic Design</li>
+						</ul>
+					</div>
+					<div class="project-requirements__part fragment">
+						<p class="project-requirements__title"><strong>Business requirements</strong></p>
+						<ul>
+							<li class="fragment">Component names in design to be aligned with code</li>
+							<li class="fragment">Latest Chrome only yay!</li>
+						</ul>
+					</div>
+					<div class="project-requirements__part fragment">
+						<p class="project-requirements__title"><strong>Other</strong></p>
+						<ul>
+							<li class="fragment">BEM</li>
+							<li class="fragment">SCSS</li>
+						</ul>
+					</div>
 				</section>
-
+				
 				<section>
 					<h2>Atomic Design</h2>
 				</section>
 
-				<section class="atomic-design" data-background="images/atomic-design.png" data-background-size="cover"></section>
+				<section class="atomic-design" data-background="images/atomic-design.png" data-background-size="contain" data-background-color="#F4F2DA"></section>
 				
 				<section>
 					<div class="design-naming">
@@ -274,14 +402,14 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 					<div style="font-size:2em;">1. Design</div>
 				</section>
 
-				<section data-background-color="#f3f3f3">
+				<section data-background-color="#f3f3f3" class="card-article-design">
 					<div>
 						<img src="images/c-card-article.png" alt="">
 						<p>c-card-article</p>
 					</div>
 				</section>
 				
-				<section data-background-color="#f3f3f3">
+				<section data-background-color="#f3f3f3" class="card-person-design">
 					<div>
 						<img src="images/c-card-person.png" alt="">
 						<p>c-card-person</p>
@@ -289,108 +417,79 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 				</section>
 				
 				<section>
-					<div style="font-size:2em;">2. @mixin</div>
+					<div style="font-size:2em;">2. @mixin → CSS</div>
 				</section>
 				
-				<section>
+				<!--<section>
 					<h3>File Structure</h3>
 					<img src="images/file-structure-1.png" alt="">
-				</section>
+				</section>-->
 				
 				<section>
-					<div>_heading.scss</div>
+<!--					<div>_heading.scss</div>-->
+					<div>Headings</div>
 					<pre><code class="scss">@mixin c-heading-1 {
-  font-size: 48px;
-  line-height: 48px;
-  font-weight: 600;
+  ...
 }
 
 @mixin c-heading-2 {
-  font-size: 28px;
-  line-height: 28px;
-  font-weight: 600;
+  ...
 }
 
 @mixin c-heading-3 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
-}
-
-@mixin c-heading-4 {
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  word-spacing: .5px;
-}
-
-@mixin c-heading-5 {
-  font-size: 10px;
-  line-height: 24px;
-  color: rgba($primary-black, .56);
-  font-weight: 600;
-  text-transform: uppercase;
-  word-spacing: .5px;
+  ...
 }
 </code></pre>
+					<pre class="fragment"><code>.article__title {
+  @include c-heading-3(...);
+}</code></pre>
 				</section>
 				
 				<section>
-					<div>_notifications.scss</div>
+<!--					<div>_notification.scss</div>-->
+					<div>Notifications</div>
 					<pre><code>@mixin c-notification-autocorrect {
   @include c-text-small;
-  padding: 10px 16px;
-  background: $color-black-a10;
-
-  &__part {
-    display: inline;
-  }
+  ...
 
   &__query {
     @include c-link-underline;
-    color: inherit;
-    cursor: pointer;
-
-    &.is-fixed {
-      font-weight: 600;
-    }
+    ...
   }
 }
 </code></pre>
+					<pre class="fragment"><code>.autocorrect {
+  @include c-notification-autocorrect;
+  ...
+}</code></pre>
 				</section>
 				
 				<section>
 					<div class="toggler">
-						<input type="checkbox" name="c" id="function-toggler" class="toggler__input" />
+						<input type="checkbox" id="function-toggler" class="toggler__input" />
 						
-						<div>_searches.scss
+<!--						<div>_searches.scss-->
+						<div>Search
 							<label for="function-toggler" class="toggler__label">+</label>
 						</div>
 						<pre><code class="scss hljs">@mixin c-search-large {
   $context: unquote(get-component-block-name(quote(&)));
 
-  position: relative;
+  @include cell(8);
 
   &::before {
     @include c-icon($icon-large-search);
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    transform: translateY(-50%);
   }
 
   & #{$context}__input {
     @include c-text-normal;
-    width: 100%;
-    padding: 5px 5px 5px 34px;
-    border: 0;
-    background: transparent;
-    outline: none;
-    caret-color: $color-primary;
+    ...
+  }
+}</code></pre>
+						<pre class="fragment"><code>.search {
+
+  &_large {
+    @include c-search-large;
   }
 }</code></pre>
 						<div class="toggler__element">
@@ -403,98 +502,64 @@ el.classList.toggle(this.bem + '--active');</code></pre>
 				</section>
 				
 				<section>
-					<div>_card-article.scss</div>
-					<pre><code>@mixin c-card-article {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: $image-article-width auto 1fr;
-  grid-template-areas: "image title       title"
-                       "image description description"
-                       "image source      datetime";
-  $article-grid-padding-left: $cell-padding * 2;
-  $article-grid-padding-right: $cell-padding * 2;
-  $article-grid-padding-bottom: 12px;
+					<div class="toggler">
+						<input type="checkbox" name="c" id="object-toggler" class="toggler__input" />
+
+						<div>Article
+							<label for="object-toggler" class="toggler__label">+</label>
+						</div>
+						<pre><code style="font-size:1.1em;">@mixin c-card-article {
 
   &__image {
     @include c-image-card;
-    position: relative;
-    grid-area: image;
-    cursor: pointer;
   }
 
   &__placeholder {
     @include c-logo-connect;
-    position: absolute;
-    top: 50%;
-    left: 28px;
-    color: $color-black-a30;
-    transform: translateY(-50%);
-  }
-
-  &__title {
-    grid-area: title;
   }
 
   &__link {
     @include c-link-heading;
     @include text-overflow;
-    display: block;
-    width: 524px;
-    margin: 0;
-    padding: 20px 0 12px $article-grid-padding-left;
-    color: $color-black;
-  }
-
-  &__description {
-    grid-area: description;
-    width: 524px;
-    padding-left: $article-grid-padding-left;
   }
 
   &__text {
     @include c-text-small($is-block: false, $rows: 2);
-    color: $color-black;
   }
 
-  &__source {
-    @include c-text-small;
-    grid-area: source;
-    margin-right: 15px;
-    margin-bottom: $article-grid-padding-bottom;
-    margin-left: $article-grid-padding-left;
-  }
-
-  &__tags {
-    @include c-text-small;
-    grid-area: tags;
-    margin-bottom: $article-grid-padding-bottom;
-  }
-
-  &__datetime {
-    @include c-text-small;
-    grid-area: datetime;
-    margin-right: $article-grid-padding-right;
-    margin-bottom: $article-grid-padding-bottom;
-    text-align: right;
-    color: $color-black-a56;
-  }
-
-  &:hover &__link {
-    color: $color-primary-hover;
-  }
+  ...
 }</code></pre>
+						<pre class="fragment"><code>.article {
+  @include c-card-article;
+}</code></pre>
+						
+						<div class="toggler__element">
+							<pre><code>&lt;a>
+  &lt;object>
+    &lt;a>...&lt;/a>
+  &lt;/object>
+&lt;/a></code></pre>
+							<label for="object-toggler">&times;</label>
+						</div>
+					</div>
 				</section>
 
-				<section data-background="images/changes.jpg" data-background-size="contain"></section>
+				<section data-background-color="#f3f3f3" class="card-article-design">
+					<div>
+						<img src="images/c-card-article.png" alt="">
+					</div>
+				</section>
+
+				<!--<section data-background="images/changes.jpg" data-background-size="contain"></section>
 				
 				<section>
-					<pre><code>@mixin c-heading-3 {
+					<pre><code style="font-size:1em">@mixin c-heading-3 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
 }</code></pre>
 					<div>vs</div>
-					<pre><code>@mixin c-heading-3($is-link-alike: false, $rows: 0, $max-rows: 0) {
+					<pre><code style="font-size:1em">@mixin c-heading-3($is-link-alike: false, $rows: 0, $max-rows: 0) {
   $line-height: 24px;
 
   font-size: 18px;
@@ -518,46 +583,12 @@ el.classList.toggle(this.bem + '--active');</code></pre>
     overflow: hidden;
   }
 }</code></pre>
-				</section>
+				</section>-->
 				
-				<section>
-					<div style="font-size:2em;">3. CSS</div>
-				</section>
+				<section data-background="images/end.jpg" data-background-size="cover"></section>
 				
-				<section>
-					<div>_autocorrect.scss</div>
-					<pre><code>.autocorrect {
-  @include c-notification-autocorrect;
-  margin: 6px 0 24px;
-}
-</code></pre>
-					
-					<div class="fragment">
-						<div>_search.scss</div>
-						<pre><code>.search {
-  margin: auto;
-
-  &_large {
-    @include cell(8);
-    @include c-search-large;
-  }
-
-  &_large &__field {
-    margin: auto auto 8px;
-    border-bottom: 2px solid $color-black-a10;
-  }
-}</code></pre>
-					</div>
-					<div class="fragment">
-						<div>_article.scss</div>
-						<pre><code>.article {
-  @include c-card-article;
-}</code></pre>
-					</div>
-				</section>
-				
-				<section>
-					Thank you
+				<section style="font-size:3em;">
+					The End
 				</section>
 				
 			</div>
